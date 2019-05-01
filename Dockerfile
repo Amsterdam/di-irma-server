@@ -7,5 +7,7 @@ RUN cd $GOPATH/src/github.com/privacybydesign/irmago/irma && go install
 FROM alpine:latest
 RUN apk update && apk add --no-cache ca-certificates
 COPY --from=builder /go/bin/irma /usr/bin
-CMD ["irma", "server"]
+COPY ./config ./config
+
+CMD ["irma", "server", "--config", "./config/irmaserver.json"]
 EXPOSE 8088

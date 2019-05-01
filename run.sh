@@ -1,1 +1,1 @@
-docker run --rm -d -p 8088:8088 irmago
+docker run --rm -d --name irma_server -p 8088:8088 irmago
