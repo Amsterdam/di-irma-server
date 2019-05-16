@@ -11,7 +11,7 @@ Dockerfile to run the IRMA go server
 ### Run
 
 ```
-docker-compose up -d
+sudo docker-compose up -d
 ```
 
 ### Test
