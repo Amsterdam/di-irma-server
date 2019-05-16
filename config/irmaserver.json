@@ -13,6 +13,10 @@
         "openstad_voting_pk": {
             "auth_method": "publickey",
             "key_file": "/etc/irmaserver/public_key.pem"
+        },
+        "mijn.ams": {
+            "auth_method": "publickey",
+            "key_file": "/etc/irmaserver/mijn.a.public.pem"
         }
     }
 }

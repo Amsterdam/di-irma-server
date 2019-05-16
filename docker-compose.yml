@@ -1,14 +1,20 @@
 version: '3.7'
 
 services:
-  irma_server:
+  irma:
     container_name: irma_server
     build: .
     volumes:
       - ./config/irmaserver.json:/etc/irmaserver/irmaserver.json
       - ./config/public_key.pem:/etc/irmaserver/public_key.pem
+      - ./config/mijn.a.public.pem:/etc/irmaserver/mijn.a.public.pem
+    expose:
+      - "8088"
+    command: "irma server -v"
+  nginx:
+    build: "./nginx"
     ports:
-      - "8088:8088"
-    command: "irma server"
+      - "80:80"
+    depends_on:
+      - "irma"
 
-  
