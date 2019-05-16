@@ -6,8 +6,7 @@ module.exports = {
   start
 }
 
-const server = 'http://localhost:80';
-// const server = 'http://172.20.10.2:80';
+const server = 'http://localhost:8088';
 
 const request = {
   'type': 'disclosing',

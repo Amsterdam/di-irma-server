@@ -6,7 +6,7 @@ services:
     build: .
     volumes:
       - ./config/irmaserver.json:/etc/irmaserver/irmaserver.json
-      - ./config/public_key.pem:/etc/irmaserver/public_key.pem
+      - ./config/public_key.pem:/etc/irmaserver/di.public.pem
       - ./config/mijn.a.public.pem:/etc/irmaserver/mijn.a.public.pem
     expose:
       - "8088"
@@ -17,4 +17,3 @@ services:
       - "80:80"
     depends_on:
       - "irma"
-

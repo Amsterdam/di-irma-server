@@ -1,2 +1,1 @@
-*.ai
-*.pdf
+node_test/config/*.pem

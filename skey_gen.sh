@@ -1,1 +1,1 @@
-openssl genrsa -out private_key.pem 2048
+openssl genrsa -out private_key.pem 4096
