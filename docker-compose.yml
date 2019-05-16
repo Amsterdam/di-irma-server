@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  irma_server:
+    container_name: irma_server
+    build: .
+    volumes:
+      - ./config/irmaserver.json:/etc/irmaserver/irmaserver.json
+      - ./config/public_key.pem:/etc/irmaserver/public_key.pem
+    ports:
+      - "8088:8088"
+    command: "irma server"
+
+  
