@@ -1,3 +1,9 @@
+### Requirements
+
+- Docker
+- docker-compose
+- Node (for testing)
+
 Dockerfile to run the IRMA go server
 
 [IRMA server library documentation](https://irma.app/docs/irma-server/)
@@ -6,6 +12,14 @@ Dockerfile to run the IRMA go server
 
 ```
 docker-compose up -d
+```
+
+### Test
+
+```
+cd node_test
+npm install
+node app.js
 ```
 
 ### Config
