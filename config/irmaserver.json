@@ -1,4 +1,5 @@
 {
+    "url": "<exposed ip:port of api-server (proxy)",
     "no_auth": false,
     "requestors": {
         "openstad_voting_token": {
@@ -20,3 +21,4 @@
         }
     }
 }
+

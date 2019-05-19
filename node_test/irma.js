@@ -1,6 +1,6 @@
 const irma = require('@privacybydesign/irmajs');
 const fs = require("fs")
-const skey = fs.readFileSync('./config/private_key.pem', 'utf-8')
+const skey = fs.readFileSync('./config/mijn.ams.pem', 'utf-8')
 
 module.exports = {
   start
@@ -17,10 +17,11 @@ const request = {
 };
 
 const authmethod = "publickey";
-const requestorname = "openstad_voting_pk"
+const requestorname = "mijn.ams"
 const key = skey;
 
 function start() {
   return irma.startSession(server, request, authmethod, key, requestorname)
     .catch(err => console.error(err))
 }
+
