@@ -68,7 +68,7 @@ if (BRANCH == "master") {
     node {
         stage('Push production image') {
         tryStep "image tagging", {
-            def image = docker.image("build.datapunt.amsterdam.nl:5000/datapunt/lightidp:${env.BUILD_NUMBER}")
+            def image = docker.image("build.app.amsterdam.nl:5000/ois/irmapoc:${env.BUILD_NUMBER}")
                 image.pull()
                 image.push("production")
                 image.push("latest")
@@ -82,7 +82,7 @@ if (BRANCH == "master") {
                 build job: 'Subtask_Openstack_Playbook',
                 parameters: [
                     [$class: 'StringParameterValue', name: 'INVENTORY', value: 'production'],
-                    [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy-lightidp.yml'],
+                    [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy-irmapoc.yml'],
                 ]
             }
         }
