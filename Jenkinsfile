@@ -31,6 +31,7 @@ node {
 }
 
 String BRANCH = "${env.BRANCH_NAME}"
+env.getEnvironment()
 echo "Current Branch:"
 echo BRANCH
 
