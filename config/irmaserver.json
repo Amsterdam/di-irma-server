@@ -1,5 +1,5 @@
 {
-    "url": "<exposed ip:port of api-server (proxy)",
+    "url": "https://acc.fixxx10.amsterdam.nl/",
     "no_auth": false,
     "requestors": {
         "openstad_voting_token": {
