@@ -31,9 +31,6 @@ node {
 }
 
 String BRANCH = "${env.BRANCH_NAME}"
-echo env.getEnvironment()
-echo "Current Branch:"
-echo BRANCH
 
 if (BRANCH == "master" || BRANCH == "accept") {
 
