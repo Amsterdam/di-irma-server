@@ -16,22 +16,11 @@ def tryStep(String message, Closure block, Closure tearDown = null) {
     }
 }
 
-
 node {
     stage("Checkout") {
         checkout scm
     }
 
-    /*
-    stage('Test') {
-        tryStep "test", {
-            sh "docker-compose -p lightidp -f .jenkins/docker-compose.yml build && " +
-               "docker-compose -p lightidp -f .jenkins/docker-compose.yml run -u root --rm idp-test make test"
-        }, {
-            sh "docker-compose -p lightidp -f .jenkins/docker-compose.yml down"
-        }
-    }
-    */
 
     stage("Build image") {
         tryStep "build", {
@@ -43,31 +32,31 @@ node {
 
 String BRANCH = "${env.BRANCH_NAME}"
 
-if (BRANCH == "accept") {
+if (BRANCH == "master" || BRANCH == "accept") {
 
-  node {
-      stage('Push acceptance image') {
-          tryStep "image tagging", {
-              def image = docker.image("build.app.amsterdam.nl:5000/ois/irmapoc:${env.BUILD_NUMBER}")
-              image.pull()
-              image.push("acceptance")
-          }
-      }
-  }
+    node {
+        stage('Push acceptance image') {
+            tryStep "image tagging", {
+                def image = docker.image("build.app.amsterdam.nl:5000/ois/irmapoc:${env.BUILD_NUMBER}")
+                image.pull()
+                image.push("acceptance")
+            }
+        }
+    }
 
-  node {
-      stage("Deploy to ACC") {
-      tryStep "deployment", {
-          build job: 'Subtask_Openstack_Playbook',
-          parameters: [
-                  [$class: 'StringParameterValue', name: 'INVENTORY', value: 'acceptance'],
-                  [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy-irmapoc.yml'],
-              ]
-          }
-      }
-  }
+    node {
+        stage("Deploy to ACC") {
+            tryStep "deployment", {
+                build job: 'Subtask_Openstack_Playbook',
+                    parameters: [
+                            [$class: 'StringParameterValue', name: 'INVENTORY', value: 'acceptance'],
+                            [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy-irmapoc.yml'],
+                    ]
+            }
+        }
+    }
 
-  if (BRANCH == "master") {
+if (BRANCH == "master") {
     stage('Waiting for approval') {
         slackSend channel: '#ci-channel', color: 'warning', message: 'LightIdP is waiting for Production Release - please confirm'
         input "Deploy to Production?"
@@ -77,7 +66,7 @@ if (BRANCH == "accept") {
         stage('Push production image') {
         tryStep "image tagging", {
             def image = docker.image("build.datapunt.amsterdam.nl:5000/datapunt/lightidp:${env.BUILD_NUMBER}")
-            image.pull()
+                image.pull()
                 image.push("production")
                 image.push("latest")
             }
