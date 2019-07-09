@@ -1,5 +1,7 @@
+#!/bin/sh
+cat <<EOF >> /config/genconfig.json
 {
-    "url": "https://fixxx10.amsterdam.nl/",
+    "url": "$BASE_URL",
     "no_auth": false,
     "requestors": {
         "openstad_voting_token": {
@@ -13,12 +15,13 @@
         },
         "openstad_voting_pk": {
             "auth_method": "publickey",
-            "key_file": "./config/di.vote.public.pem"
+            "key_file": "/config/di.vote.public.pem"
         },
         "mijn.ams": {
             "auth_method": "publickey",
-            "key_file": "./config/mijn.a.public.pem"
+            "key_file": "/config/mijn.a.public.pem"
         }
     }
 }
-
+EOF
+irma server -vv --config /config/genconfig.json

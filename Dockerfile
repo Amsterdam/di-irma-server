@@ -8,7 +8,9 @@ FROM alpine:latest
 RUN apk update && apk add --no-cache ca-certificates
 COPY --from=builder /go/bin/irma /usr/bin
 
-COPY ./config ./config
-CMD ["sh", "-c", "irma server -vv --config $CONFIGFILE"]
+COPY config /config
+COPY init.sh /usr/bin/init.sh
+ENV BASE_URL https://fixxx10.amsterdam.nl/
+CMD init.sh
 
 EXPOSE 8088
