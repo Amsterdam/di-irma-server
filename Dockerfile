@@ -10,8 +10,6 @@ COPY --from=builder /go/bin/irma /usr/bin
 
 COPY ./config ./config
 
-RUN /bin/sh -c 'echo BASE_URL $BASE_URL'
-
-CMD ["sh", "-c", "irma server -vv --config ./config/irmaserver.json --url $BASE_URL"]
+CMD ["sh", "-c", "irma server -vv --config ./config/irmaserver.json"]
 
 EXPOSE 8088
