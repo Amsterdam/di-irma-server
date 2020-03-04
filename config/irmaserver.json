@@ -3,7 +3,7 @@
     "requestors": {
         "openstad_voting_pk": {
             "auth_method": "publickey",
-            "key_file": "./config/public_key.pem"
+            "key_file": "./config/binnentuin.pem"
         }
     }
 }
