@@ -4,8 +4,7 @@ services:
     build:
       context: .
     environment:
-      - BASE_URL=https://acc.attr.auth.amsterdam.nl
-      # - BASE_URL=http://b963f628.eu.ngrok.io
+      - BASE_URL=https://attr.auth.amsterdam.nl
     ports:
       - "8088:8088"
     container_name: irma-container
