@@ -6,6 +6,6 @@ RUN chmod +x /usr/local/bin/irma
 RUN echo "Installed IRMA 0.5.0!!!"
 
 COPY ./config ./config
-CMD ["sh", "-c", "irma server -vv --config ./config/irmaserver.json --url $BASE_URL"]
+CMD ["sh", "-c", "irma server -vv --config ./config/irmaserver.json --url $BASE_URL --production"]
 
 EXPOSE 8088
