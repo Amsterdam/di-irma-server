@@ -1,5 +1,5 @@
 {
-  "no_auth": false,
+  "production": true,
   "no-email": true,
   "sse": true,
   "requestors": {
