@@ -5,7 +5,7 @@
   "requestors": {
     "irma-demo": {
       "auth_method": "publickey",
-      "key_file": "./config/public_key.pem"
+      "key_file": "./config/public_key_prod.pem"
     }
   }
 }
