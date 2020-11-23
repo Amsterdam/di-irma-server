@@ -1,6 +1,5 @@
 {
   "production": true,
-  "no-email": true,
   "requestors": {
     "irma-demo": {
       "auth_method": "publickey",
