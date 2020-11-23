@@ -1,7 +1,6 @@
 {
-  "no_auth": false,
+  "production": true,
   "no-email": true,
-  "sse": true,
   "requestors": {
     "irma-demo": {
       "auth_method": "publickey",
