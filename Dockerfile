@@ -8,6 +8,6 @@ RUN wget -q -O /usr/local/bin/irma https://github.com/privacybydesign/irmago/rel
 RUN chmod +x /usr/local/bin/irma
 
 COPY ./config ./config
-CMD irma server -vv --config $CONFIG --url $BASE_URL --no-email
+CMD irma server -vv --config $CONFIG --url $BASE_URL --sse --no-email
 
 EXPOSE 8088
