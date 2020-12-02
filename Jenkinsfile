@@ -47,6 +47,8 @@ if (BRANCH == "develop") {
             }
         }
     }
+}
+
 if (BRANCH == "master") {
     stage('Waiting for approval') {
         slackSend channel: '#ci-channel', color: 'warning', message: 'irma-backend is waiting for Production Release - please confirm'
@@ -74,5 +76,5 @@ if (BRANCH == "master") {
             }
         }
     }
-  }
 }
+
