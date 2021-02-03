@@ -4,6 +4,10 @@
     "irma-demo": {
       "auth_method": "publickey",
       "key_file": "./config/public_key.pem"
+    },
+    "irma-vote": {
+      "auth_method": "publickey",
+      "key_file": "./config/irma-vote/public_key.pem"
     }
-  }
+  },
 }
