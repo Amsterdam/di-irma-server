@@ -9,5 +9,5 @@
       "auth_method": "publickey",
       "key_file": "./config/irma-vote/public_key.pem"
     }
-  },
+  }
 }
