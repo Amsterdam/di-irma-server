@@ -13,5 +13,5 @@ RUN update-ca-certificates --fresh
 RUN wget -q -O /usr/local/bin/irma https://github.com/privacybydesign/irmago/releases/download/v0.12.0/irma-linux-amd64
 RUN chmod +x /usr/local/bin/irma
 COPY ./config ./config
-CMD irma server -v --config $CONFIG --url $BASE_URL --sse --no-email
+CMD /usr/local/bin/irma server -v --config $CONFIG --url $BASE_URL --sse --no-email
 EXPOSE 8088
