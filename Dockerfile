@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates
 # it will still generate the ca-certificates.crt file fully.
 RUN rm /etc/ssl/certs/ca-certificates.crt
 RUN update-ca-certificates --fresh
-RUN wget -q -O /usr/local/bin/irma https://github.com/privacybydesign/irmago/releases/download/v0.11.1/irma-linux-amd64
+RUN wget -q -O /usr/local/bin/irma https://github.com/privacybydesign/irmago/releases/download/v0.12.0/irma-linux-amd64
 RUN chmod +x /usr/local/bin/irma
 COPY ./config ./config
 CMD irma server -v --config $CONFIG --url $BASE_URL --sse --no-email
